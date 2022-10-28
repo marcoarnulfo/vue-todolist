@@ -49,6 +49,7 @@ createApp({
             console.log("funziono");
             console.log(this.todoList[i].text);
             this.todoList.splice(i, 1)
+            //document.querySelectorAll('span').classList.add("hide")
         },
         addNew() {
             if (this.newTask.length < 5) {
