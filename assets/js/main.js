@@ -19,6 +19,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            error: false,
             message: 'Hello Vue!',
             todoList: [
                 {
@@ -40,13 +41,27 @@ createApp({
             ]
         }
     },
-    methods:{
-        done(i){
-            console.log(this.todoList[i]);
-            console.log(this.todoList[i].done);     
+    methods: {
+        done(i) {
             this.todoList[i].done = true
-            if (this.todoList[i].done = true) {
-            }  
+
+        },
+        test(i) {
+            console.log("funziono");
+            console.log(this.todoList[i].text);
+            this.todoList.splice(i, 1)
+            //document.querySelectorAll('span').classList.add("hide")
+        },
+        addNew() {
+            if (this.newTask.length < 5) {
+                console.log("erroe");
+                this.error = true
+            } else {
+                const obj = { text: this.newTask, done: false }
+                this.todoList.unshift(obj)
+                this.newTask = ""
+            }
+
         }
     }
 }).mount('#app')
