@@ -3,13 +3,50 @@ console.log("hello");
 
 
 
-    import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+/*
+
+Rifare l'esercizio della to do list. 
+//Questa volta però ogni todo sarà un oggetto, formato da due proprietà:
+//text, una stringa che indica il testo del todo
+//done, un booleano (true/false) che indica se il todo è stato fatto oppure no
+
+*/
 
 
-    createApp({
-        data() {
+
+const { createApp } = Vue
+
+createApp({
+    data() {
         return {
-        message: 'Hello Vue!'
+            message: 'Hello Vue!',
+            todoList: [
+                {
+                    text: 'Fare la spesa',
+                    done: false
+                },
+                {
+                    text: 'Studiare VUE',
+                    done: false
+                },
+                {
+                    text: 'Allenarsi',
+                    done: false
+                },
+                {
+                    text: 'Preparare cena',
+                    done: false
+                },
+            ]
+        }
+    },
+    methods:{
+        done(i){
+            console.log(this.todoList[i]);
+            console.log(this.todoList[i].done);     
+            this.todoList[i].done = true
+            if (this.todoList[i].done = true) {
+            }  
         }
     }
 }).mount('#app')
